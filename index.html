@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="PhysX-Anything: Simulation-Ready Physical 3D Assets from Single Image">
+  <meta name="keywords" content="Nerfies, D-NeRF, NeRF">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PhysX-Anything: Simulation-Ready Physical 3D Assets from Single Image</title>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <!-- <link rel="stylesheet" href="./static/css/fontawesome.all.min.css"> -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/favicon.svg">
+
+  <link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet">
+
+
+
+
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css">
+  <style>
+
+    pre {
+      background-color: #f4f4f4;
+      padding: 1px;
+      border-radius: 8px;
+      max-height: 300px;
+      overflow: auto;
+      font-size: 14px;
+      border: 1px solid #ddd;
+    }
+
+    code {
+      font-family: monospace;
+      white-space: pre;
+    }
+
+    .section {
+      margin-top: 1px;
+      margin-bottom: 1px;
+    }
+
+    h2 {
+    margin-top: 1px;
+    margin-bottom: 1px;
+    color: #333;
+    text-align: center; 
+  }
+
+  .iframe-container {
+      display: flex;
+      width: 100%;
+      height: 300px; /* 可以按需改为 100vh 或 auto */
+    }
+
+    .iframe-container iframe {
+      flex: 1;
+      border: none;
+      height: 100%;
+    }
+
+    .publication-title {
+    font-family: "Russo One", "Microsoft YaHei", "PingFang SC", sans-serif;
+    letter-spacing: 0.08em;                 /* 稍微拉开字距 */
+    
+    text-shadow:
+      0 0 6px rgba(60, 109, 243, 0.9),
+      0 0 16px rgba(59, 85, 235, 0.7),
+      0 0 32px rgba(8, 22, 228, 0.5);    /* 霓虹光晕 */
+  }
+
+  /* PhysX-Anything 主标题颜色（偏亮蓝色） */
+  .publication-title .paper-main {
+    color: #e3f5ff;
+    font-weight: 100; 
+    text-shadow:
+      0 0 6px rgba(60, 109, 243, 0.9),
+      0 0 16px rgba(59, 85, 235, 0.9),
+      32px 0 32px rgba(8, 22, 228, 0.9);
+  }
+
+  /* 后半句副标题颜色（略偏白/浅蓝） */
+  .publication-title .paper-sub {
+    color: #e3f5ff;
+    font-size: 0.8em;    
+    font-weight: 300; 
+    text-shadow:
+      0 0 6px rgba(40, 137, 247, 0.9),
+      0 0 16px rgba(29, 188, 236, 0.7),
+      0 0 32px rgba(8, 22, 228, 0.5);
+  }
+
+
+  .publication-title .paper-author {
+    color: #e3f5ff;
+    font-size: 0.4em;    
+    font-weight: 400; 
+    text-shadow:
+      0 0 6px rgba(40, 137, 247, 0.9),
+      0 0 16px rgba(29, 188, 236, 0.7),
+      0 0 32px rgba(8, 22, 228, 0.5);
+  }
+
+  .publication-titleaff {
+    font-family: "Russo One", "Microsoft YaHei", "PingFang SC", sans-serif;
+    letter-spacing: 0.08em;    
+    line-height: 0.9;      /* 默认大约 1.4 左右，改小就会更紧凑 */
+  margin-top: 0.1rem;    /* 视情况再微调上下外边距 */
+  margin-bottom: 0.1rem;
+  }
+  .publication-titleaff .paper-aff {
+    color: #e3f5ff;
+    font-size: 0.4em;    
+    font-weight: 400; 
+    text-shadow:
+      0 0 6px rgba(40, 137, 247, 0.9),
+      0 0 16px rgba(29, 188, 236, 0.7),
+      0 0 32px rgba(8, 22, 228, 0.5);
+  }
+  .publication-titleaff .paper-au {
+    color: #e3f5ff;
+    font-size: 0.4em;    
+    font-weight: 400; 
+    text-shadow:
+      0 0 6px rgba(40, 137, 247, 0.9),
+      0 0 16px rgba(29, 188, 236, 0.7),
+      0 0 32px rgba(8, 22, 228, 0.5);
+  }
+
+  .publication-icon {
+    font-family: "Russo One", "Microsoft YaHei", "PingFang SC", sans-serif;
+    letter-spacing: 0.08em;                 /* 稍微拉开字距 */
+    color: #e3f5ff;
+  }
+
+
+
+  /* 让 hero 可以作为视频定位的容器 */
+.video-hero {
+  position: relative;
+  overflow: hidden;
+}
+
+/* 背景视频容器，铺满整个 hero */
+.video-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+
+  height: 90vh;          /* 只占屏幕高度的一半，可按需要调，比如 40vh / 60vh */
+  overflow: hidden;      /* 超出的部分裁掉 */
+  z-index: 0;
+}
+
+/* 让 video 自适应裁剪铺满背景 */
+.video-background video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;  /* 按比例裁剪填满 */
+}
+
+/* 确保前景内容在视频之上，并加一层半透明背景增强可读性 */
+.video-hero .hero-body {
+  position: relative;
+  
+  z-index: 1;
+  /* 👉 整个半透明区域往下挪一点 */
+
+  /* 👉 增大半透明区域高度 */
+  padding-top: 3rem;
+  padding-bottom: 10rem;     /* 比原来更大一点 */
+  background: radial-gradient(circle at top, rgba(220, 228, 236, 0), rgba(2, 8, 22, 0));
+}
+.navbar {
+  display: none;
+}
+.link-block {
+  display: inline-block;
+  margin: 0 0.8rem;   /* 左右间距 → 数字越大按钮之间越开 */
+}
+
+
+  </style>
+
+
+
+
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+
+
+  </div>
+</nav>
+
+
+<section class="hero is-fullheight video-hero">
+
+  <div class="video-background">
+    <video autoplay muted loop playsinline>
+      <source src="static/videos/mov.mp4" type="video/mp4">
+
+    </video>
+  </div>
+
+  
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+
+          <h1 class="title is-1 publication-title">
+            <span class="paper-main">PhysX-Anything:</span><br>
+
+            <span class="paper-sub">Simulation-Ready Physical 3D Assets from Single Image</span>
+          </h1>
+
+          <div class="title is-1 publication-title">
+
+  <!-- <h3 class="title is-3 title"><a href="https://neurips.cc/">NeurIPS 2025 (<span style="color:red;">Spotlight</span>)</a></h3> -->
+
+
+            
+          </div>
+
+          <div class="title is-1 publication-titleaff">
+            <span class="paper-au">
+              Ziang Cao<sup>1</sup>,</span>
+              <span class="paper-au">
+                Fangzhou Hong<sup>1</sup>,</span>
+            <span class="paper-au">
+              Zhaoxi Chen<sup>1</sup>,</span>
+            
+            <span class="paper-au">
+              Liang Pan<sup>2</sup>,
+            </span>
+            <span class="paper-au">
+              Ziwei Liu<sup>1</sup>
+            </span><br>
+            <span class="paper-aff"><sup>1</sup>S-Lab, Nanyang Technological University,</span>
+            <span class="paper-aff"><sup>2</sup>Shanghai AI Laboratory</span>
+          </div>
+
+
+          <!-- <div class="is-size-5 publication-authors">
+           <span class="author-block">
+              <a href="https://iclr.cc/">ICLR 2024</a></span>
+            <span class="author-block">
+          </div> -->
+
+        <br>
+          <div class="column has-text-centered">
+            <div class="publication-links">
+
+              
+
+
+              <span class="link-block">
+                <a href="https://arxiv.org/abs/2507.12465"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>ArXiv</span>
+                </a>
+              </span>
+             
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="https://github.com/ziangcao0312/PhysX-Anything"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+
+              <!-- Video Link. -->
+              <span class="link-block">
+                <a href="https://youtu.be/okMms-NdxMk"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-youtube"></i>
+                  </span>
+                  <span>Video</span>
+                </a>
+              </span>
+
+              <!-- Data Link. -->
+              <span class="link-block">
+                <a href="https://huggingface.co/datasets/Caoza/PhysX-Mobility"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fa fa-database"></i>
+                  </span>
+                  <span>Dataset</span>
+                </a>
+              </span>
+     
+                  
+                 
+            </div>
+
+
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Paper video. -->
+  <br>
+  <br>
+  <br>
+  <div class="columns is-centered has-text-centered">
+    <div class="column is-four-fifths">
+      <!-- <h2 class="title is-3">Demo Video</h2> -->
+      <div class="publication-video">
+        <iframe src="https://www.youtube.com/embed/okMms-NdxMk"
+                frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+      </div>
+    </div>
+  </div>
+  <!--/ Paper video. -->
+</div>
+</section>
+<section class="section">
+
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-4">Abstract</h2>
+        <div class="content has-text-justified">
+          
+          
+          <p>
+            3D modeling is shifting from static visual representations toward physical, articulated assets that can be directly used in simulation and interaction.
+            However, most existing 3D generation methods overlook key physical and articulation properties, thereby limiting their utility in embodied AI. 
+            To bridge this gap, we introduce <strong>PhysX-Anything</strong>, the first <strong>simulation-ready</strong> physical 3D generative framework that, given a single in-the-wild image, produces high-quality sim-ready 3D assets with explicit geometry, articulation, and physical attributes. 
+            Specifically, we propose the first VLM-based physical 3D generative model, along with a new 3D representation that efficiently tokenizes geometry. 
+            It reduces the number of tokens by <strong>193&times;</strong>, enabling explicit geometry learning within standard VLM token budgets without introducing any special tokens during fine-tuning and significantly improving generative quality. 
+            In addition, to overcome the limited diversity of existing physical 3D datasets, we construct a new dataset, <strong>PhysX-Mobility</strong>, which expands the object categories in prior physical 3D datasets by over <strong>2&times;</strong> and includes more than 2K common real-world objects with rich physical annotations. 
+            Extensive experiments on PhysX-Mobility and in-the-wild images demonstrate that PhysX-Anything delivers strong generative performance and robust generalization. 
+            Furthermore, simulation-based experiments in a MuJoCo-style environment validate that our sim-ready assets can be directly used for contact-rich robotic policy learning. 
+            We believe PhysX-Anything can substantially empower a broad range of downstream applications, especially in embodied AI and physics-based simulation.
+        </p>
+        </div>
+        <br>
+        <img class="summary-img" src="./static/videos/teaser_final.png" style="width:120%;">
+        <br>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+    <br>
+    <br>
+
+      <div class="container is-max-desktop">
+        <!-- method. -->
+        <div class="columns is-centered has-text-centered">
+          <div class="column is-four-fifths">
+            <h2 class="title is-4">PhysX-Anything: Simulation-Ready Physical 3D Assets from Single Image </h2>
+            <h2 class="title is-5">I. Architecture of Our Method</h2>
+            <div class="content has-text-justified">
+    
+            <img class="summary-img" src="./static/videos/framework.png" style="width:100%;">
+            <br>
+            <p >
+              PhysX-Anything conducts a multi-round conversation to produce a physical representation that includes overall information (left) and detailed geometric information for each part (right). Decoding this representation yields high-quality, simulation-ready 3D assets with explicit physical attributes that can be directly used in downstream applications. 
+              </p>
+            </div>
+          </div>
+        </div>
+        <!--/ method. -->
+
+        <div class="columns is-centered has-text-centered">
+          <div class="column is-four-fifths">
+            <h2 class="title is-4">PhysX-Anything: Simulation-Ready Physical 3D Assets from Single Image </h2>
+            <h2 class="title is-5">II. Architecture of Decoder</h2>
+            <div class="content has-text-justified">
+    
+            <img class="summary-img" src="./static/videos/decoder_v1.png" style="width:100%;">
+            <br>
+            <p >
+              Given the coarse geometry, a controllable flow transformer is employed to generate fine-grained geometric information. The format decoder then combines the overall physical information and the refined geometry to produce assets in six different formats. 
+              </p>
+            </div>
+          </div>
+        </div>
+
+
+            <!-- method. -->
+            <div class="columns is-centered has-text-centered">
+              <div class="column is-four-fifths">
+                <h2 class="title is-5">III. Qualitative Comparison</h2>
+                <div class="content has-text-justified">
+        
+                  <video poster="" id="chair-tp" autoplay controls muted loop playsinline >
+                    <source src="./static/videos/qualit.mp4"
+                            type="video/mp4">
+                  </video>
+
+                </div>
+              </div>
+            </div>
+            <!--/ method. -->
+            <div class="columns is-centered has-text-centered">
+              <div class="column is-four-fifths">
+                <h2 class="title is-5">IV. Robitc Policy in Simulation</h2>
+                <div class="content has-text-justified">
+        
+                  <video poster="" id="chair-tp" autoplay controls muted loop playsinline >
+                    <source src="./static/videos/demo.mp4"
+                            type="video/mp4">
+                  </video>
+                
+
+                </div>
+              </div>
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+          </div>
+          </section>
+
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title is-4">BibTeX</h2>
+    <pre><code>@article{cao2025physx,
+  title={PhysX-Anything: Simulation-Ready Physical 3D Assets from Single Image},
+  author={Cao, Ziang and Hong, Fangzhou, and Chen, Zhaoxi and Pan, Liang and Liu, Ziwei},
+  journal={arXiv preprint arXiv:},
+  year={2025}
+}</code></pre>
+  </div>
+</section>
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+
+      <a class="icon-link" href="https://github.com/ziangcao0312/PhysX-3D" class="external-link" disabled>
+        <i class="fab fa-github"></i>
+      </a>
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+                 Source code mainly borrowed from Keunhong Park's  <a rel="license"
+                                                href="https://nerfies.github.io/">Nerfies website</a> .
+          </p>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,238 @@
+{
+    "object_name": "Drawer Cabinet",
+    "category": "Furniture",
+    "dimension": "50*50*60",
+    "parts": [
+        {
+            "label": 0,
+            "name": "vertical_side_panel",
+            "material": "Wood",
+            "density": "0.65 g/cm^3",
+            "priority_rank": 8,
+            "Basic_description": "A vertical side panel of a drawer cabinet made of wood.",
+            "Functional_description": "Provides structural support and enclosure for the cabinet.",
+            "Movement_description": "Fixed in place, no movement.",
+            "Young's Modulus (GPa)": 10.0,
+            "Poisson's Ratio": 0.3
+        },
+        {
+            "label": 1,
+            "name": "vertical_side_panel",
+            "material": "Wood",
+            "density": "0.65 g/cm^3",
+            "priority_rank": 8,
+            "Basic_description": "A vertical side panel of a drawer cabinet made of wood.",
+            "Functional_description": "Provides structural support and enclosure for the cabinet.",
+            "Movement_description": "Fixed in place, no movement.",
+            "Young's Modulus (GPa)": 10.0,
+            "Poisson's Ratio": 0.3
+        },
+        {
+            "label": 2,
+            "name": "back_panel",
+            "material": "Wood",
+            "density": "0.65 g/cm^3",
+            "priority_rank": 10,
+            "Basic_description": "Back panel of the drawer cabinet made of wood.",
+            "Functional_description": "Provides rear enclosure and structural integrity.",
+            "Movement_description": "Fixed in place, no movement.",
+            "Young's Modulus (GPa)": 10.0,
+            "Poisson's Ratio": 0.3
+        },
+        {
+            "label": 3,
+            "name": "bottom_panel",
+            "material": "Wood",
+            "density": "0.65 g/cm^3",
+            "priority_rank": 9,
+            "Basic_description": "Bottom panel of the drawer cabinet made of wood.",
+            "Functional_description": "Supports the structure and contents of the cabinet.",
+            "Movement_description": "Fixed in place, no movement.",
+            "Young's Modulus (GPa)": 10.0,
+            "Poisson's Ratio": 0.3
+        },
+        {
+            "label": 4,
+            "name": "top_panel",
+            "material": "Wood",
+            "density": "0.65 g/cm^3",
+            "priority_rank": 7,
+            "Basic_description": "Top panel of the drawer cabinet made of wood.",
+            "Functional_description": "Covers the top and may support items placed on it.",
+            "Movement_description": "Fixed in place, no movement.",
+            "Young's Modulus (GPa)": 10.0,
+            "Poisson's Ratio": 0.3
+        },
+        {
+            "label": 5,
+            "name": "frame_horizontal_bar",
+            "material": "Wood",
+            "density": "0.65 g/cm^3",
+            "priority_rank": 9,
+            "Basic_description": "Horizontal bar of the cabinet frame made of wood.",
+            "Functional_description": "Provides structural support between side panels.",
+            "Movement_description": "Fixed in place, no movement.",
+            "Young's Modulus (GPa)": 10.0,
+            "Poisson's Ratio": 0.3
+        },
+        {
+            "label": 6,
+            "name": "frame_horizontal_bar",
+            "material": "Wood",
+            "density": "0.65 g/cm^3",
+            "priority_rank": 9,
+            "Basic_description": "Horizontal bar of the cabinet frame made of wood.",
+            "Functional_description": "Provides structural support between side panels.",
+            "Movement_description": "Fixed in place, no movement.",
+            "Young's Modulus (GPa)": 10.0,
+            "Poisson's Ratio": 0.3
+        },
+        {
+            "label": 7,
+            "name": "drawer_box",
+            "material": "Wood",
+            "density": "0.65 g/cm^3",
+            "priority_rank": 3,
+            "Basic_description": "Lower drawer box made of wood.",
+            "Functional_description": "Holds items and slides in/out of the cabinet.",
+            "Movement_description": "Slides in and out via drawer sliders.",
+            "Young's Modulus (GPa)": 10.0,
+            "Poisson's Ratio": 0.3
+        },
+        {
+            "label": 8,
+            "name": "handle",
+            "material": "Metal",
+            "density": "7.8 g/cm^3",
+            "priority_rank": 1,
+            "Basic_description": "Metal handle attached to the lower drawer.",
+            "Functional_description": "Used to pull the drawer open or push it closed.",
+            "Movement_description": "Fixed to the drawer front.",
+            "Young's Modulus (GPa)": 200.0,
+            "Poisson's Ratio": 0.3
+        },
+        {
+            "label": 9,
+            "name": "drawer_slider",
+            "material": "Metal",
+            "density": "7.8 g/cm^3",
+            "priority_rank": 6,
+            "Basic_description": "Metal slider for the lower drawer.",
+            "Functional_description": "Allows the drawer to slide in and out.",
+            "Movement_description": "Supports relative sliding motion.",
+            "Young's Modulus (GPa)": 200.0,
+            "Poisson's Ratio": 0.3
+        },
+        {
+            "label": 10,
+            "name": "drawer_slider",
+            "material": "Metal",
+            "density": "7.8 g/cm^3",
+            "priority_rank": 6,
+            "Basic_description": "Metal slider for the upper drawer.",
+            "Functional_description": "Allows the drawer to slide in and out.",
+            "Movement_description": "Supports relative sliding motion.",
+            "Young's Modulus (GPa)": 200.0,
+            "Poisson's Ratio": 0.3
+        },
+        {
+            "label": 11,
+            "name": "drawer_box",
+            "material": "Wood",
+            "density": "0.65 g/cm^3",
+            "priority_rank": 4,
+            "Basic_description": "Upper drawer box made of wood.",
+            "Functional_description": "Holds items and slides in/out of the cabinet.",
+            "Movement_description": "Slides in and out via drawer sliders.",
+            "Young's Modulus (GPa)": 10.0,
+            "Poisson's Ratio": 0.3
+        },
+        {
+            "label": 12,
+            "name": "handle",
+            "material": "Metal",
+            "density": "7.8 g/cm^3",
+            "priority_rank": 2,
+            "Basic_description": "Metal handle attached to the upper drawer.",
+            "Functional_description": "Used to pull the drawer open or push it closed.",
+            "Movement_description": "Fixed to the drawer front.",
+            "Young's Modulus (GPa)": 200.0,
+            "Poisson's Ratio": 0.3
+        },
+        {
+            "label": 13,
+            "name": "drawer_slider",
+            "material": "Metal",
+            "density": "7.8 g/cm^3",
+            "priority_rank": 6,
+            "Basic_description": "Second metal slider for the lower drawer.",
+            "Functional_description": "Allows the drawer to slide in and out.",
+            "Movement_description": "Supports relative sliding motion.",
+            "Young's Modulus (GPa)": 200.0,
+            "Poisson's Ratio": 0.3
+        },
+        {
+            "label": 14,
+            "name": "drawer_slider",
+            "material": "Metal",
+            "density": "7.8 g/cm^3",
+            "priority_rank": 6,
+            "Basic_description": "Second metal slider for the upper drawer.",
+            "Functional_description": "Allows the drawer to slide in and out.",
+            "Movement_description": "Supports relative sliding motion.",
+            "Young's Modulus (GPa)": 200.0,
+            "Poisson's Ratio": 0.3
+        }
+    ],
+    "group_info": {
+        "0": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            9,
+            10,
+            13,
+            14
+        ],
+        "1": [
+            [
+                7,
+                8
+            ],
+            "0",
+            [
+                0,
+                0,
+                1,
+                -0.009601250290870667,
+                -0.17686372995376587,
+                0.576269268989563,
+                0.0,
+                1.286729
+            ],
+            "B"
+        ],
+        "2": [
+            [
+                11,
+                12
+            ],
+            "0",
+            [
+                0,
+                0,
+                1,
+                -0.009601250290870667,
+                0.37331128120422363,
+                0.5762754678726196,
+                0.0,
+                1.286729
+            ],
+            "B"
+        ]
+    }
+}
