@@ -158,7 +158,9 @@
     color: #e3f5ff;
   }
 
-
+  .footer .columns .column .content {
+  text-align: center;
+}
 
   /* 让 hero 可以作为视频定位的容器 */
 .video-hero {
@@ -205,6 +207,16 @@
   margin: 0 0.8rem;   /* 左右间距 → 数字越大按钮之间越开 */
 }
 
+.bibtex-box {
+  display: inline-block;   /* 让它在 has-text-centered 里整体居中 */
+  max-width: 700px;        /* 限制最大宽度，按需调，比如 700/800 等 */
+  width: 100%;             /* 小屏时依然能自适应 */
+  text-align: left;        /* 里面代码左对齐 */
+}
+
+.bibtex-box pre {
+  overflow-x: auto;        /* 太长时可以横向滚动 */
+}
 
   </style>
 
@@ -485,13 +497,21 @@
 
 <section class="section" id="BibTeX">
   <div class="container is-max-desktop content">
-    <h2 class="title is-4">BibTeX</h2>
-    <pre><code>@article{cao2025physx,
+    
+    <div class="content has-text-centered">
+      <h2 class="title is-4">BibTeX</h2>
+
+      <!-- 新增这一层 -->
+      <div class="bibtex-box">
+        <pre><code>@article{cao2025physx,
   title={PhysX-Anything: Simulation-Ready Physical 3D Assets from Single Image},
   author={Cao, Ziang and Hong, Fangzhou, and Chen, Zhaoxi and Pan, Liang and Liu, Ziwei},
   journal={arXiv preprint arXiv:},
   year={2025}
 }</code></pre>
+
+      </div>
+      </div>
   </div>
 </section>
 
@@ -500,7 +520,7 @@
   <div class="container">
     <div class="content has-text-centered">
 
-      <a class="icon-link" href="https://github.com/ziangcao0312/PhysX-3D" class="external-link" disabled>
+      <a class="icon-link external-link" href="https://github.com/ziangcao0312/PhysX-3D" disabled>
         <i class="fab fa-github"></i>
       </a>
     </div>
